@@ -1,0 +1,73 @@
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from './views/Home.vue';
+import GoodsList from './views/GoodsList.vue';
+import Login from './views/Login.vue';
+import Register from './views/Register.vue';
+import Buy from './views/Buy.vue';
+import GoodsManager from './views/GoodsManager';
+
+Vue.use(Router);
+
+export const router = new Router({
+  mode: 'history',
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+    {
+      path: '/home',
+      component: Home
+    },
+    {
+      path: '/goodsList',
+      component: GoodsList
+    },
+    {
+      path: '/login',
+      component: Login
+    },
+    {
+      path: '/register',
+      component: Register
+    },
+    {
+      path: '/profile',
+      name: 'profile',
+      // lazy-loaded
+      component: () => import('./views/Profile.vue')
+    },
+    {
+      path: '/admin',
+      name: 'admin',
+      // lazy-loaded
+      component: () => import('./views/BoardAdmin.vue')
+    },
+    {
+      path: '/mod',
+      name: 'moderator',
+      // lazy-loaded
+      component: () => import('./views/BoardModerator.vue')
+    },
+    {
+      path: '/user',
+      name: 'user',
+      // lazy-loaded
+      component: () => import('./views/BoardUser.vue')
+    },
+    {
+      path: '/buy',
+      name: 'buy',
+      // lazy-loaded
+      component: Buy
+    },
+    {
+      path: '/goodsManager',
+      name: 'GoodsManager',
+      // lazy-loaded
+      component: GoodsManager
+    }
+  ]
+});
